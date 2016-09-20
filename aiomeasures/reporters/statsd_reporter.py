@@ -82,7 +82,7 @@ def connect(addr, loop):
             lambda: UDPProtocol(),
             remote_addr=addr
         )
-        transport.protocol = protocol
+        protocol.transport = transport
     else:
         raise NotImplementedError()
     return transport, protocol
