@@ -29,10 +29,8 @@ class StatsDReporter:
             if i % 20 == 0:
                 # small packets
                 self.protocol.send(msg)
-                msg[:] = []
         if msg:
             self.protocol.send(msg)
-            msg[:] = []
 
     @asyncio.coroutine
     def connect(self):
@@ -84,6 +82,7 @@ def connect(addr, loop):
             lambda: UDPProtocol(),
             remote_addr=addr
         )
+        transport.protocol = protocol
     else:
         raise NotImplementedError()
     return transport, protocol
