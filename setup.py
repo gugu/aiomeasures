@@ -26,7 +26,7 @@ cmds = versioneer.get_cmdclass()
 cmds.update({'test': PyTest})
 
 setup(
-    name='aiomeasures',
+    name='aiomeasures-fork',
     version=versioneer.get_version(),
     description="Collect and send metrics to StatsD",
     author="Xavier Barbosa",
